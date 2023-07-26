@@ -2,6 +2,7 @@ defaultNamespace: cert-manager
 helm:
   repo: https://charts.jetstack.io
   chart: cert-manager
+  name: cert-manager
   version: v1.10.2
   values:
-    installCRDs: true
+    installCRDs: false
