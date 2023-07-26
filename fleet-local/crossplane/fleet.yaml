@@ -3,11 +3,11 @@ helm:
   repo: https://charts.crossplane.io/stable
   chart: crossplane
   values:
-    args: ["enable-external-secret-stores"]
+    args: ["--enable-external-secret-stores"]
     metrics:
-      enabled: true
+      enabled: false
     webhooks:
-      enabled: true
+      enabled: false
     configuration:
       package:
         - xpkg.upbound.io/upbound/platform-ref-aws:v0.6.0
