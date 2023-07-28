@@ -1,0 +1,36 @@
+# values.yaml
+replicaCount: 2
+collectionReplicas: 1
+image:
+  tag: 8.11.2-debian-11-r50
+authentication:
+  enabled: true
+  adminUsername: admin
+  existingSecret: solr-password
+javaMem: "-Xms4g -Xmx6g"
+resources:
+  limits:
+    memory: 8Gi
+  requests:
+    memory: 4Gi
+zookeeper:
+  replicaCount: 3
+  env:
+    JVMFLAGS: "-Xms512m -Xmx1g"
+  resources:
+    limits:
+      memory: 1Gi
+    requests:
+      memory: 512Mi
+persistence:
+  enabled: true
+  storageClass: gp2
+  size: 500Gi
+extraVolumeMounts:
+  - name: backup
+    mountPath: /bitnami/solr/server/solr/backup
+    readOnly: false
+extraVolumes:
+  - name: backup
+    persistentVolumeClaim:
+      claimName: solr-backup
