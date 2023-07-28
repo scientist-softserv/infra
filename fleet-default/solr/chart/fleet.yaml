@@ -7,3 +7,5 @@ helm:
   version: v6.2.3
   valuesFiles:
     - solr-values.yaml
+overrideTargets:
+  - clusterGroup: samvera
