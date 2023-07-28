@@ -1,0 +1,5 @@
+helm:
+  chart: .
+  releaseName: efs-sc
+  values:
+    fsid: global.fleet.clusterLabels.efs-id
