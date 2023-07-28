@@ -1,0 +1,7 @@
+defaultNamespace: solr
+# overrideTargets:
+#  - clusterGroup: samvera
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        env: dev

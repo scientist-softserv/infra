@@ -1,3 +1,17 @@
 defaultNamespace: solr
+helm:
+  repo: https://charts.bitnami.com/bitnami
+  chart: solr
+  takeOwnership: true
+  releaseName: solr
+  version: v6.2.3
+  valuesFiles:
+    - solr-values.yaml
+# overrideTargets:
+#  - clusterGroup: samvera
+dependsOn:
+  - solr-pre
 overrideTargets:
-  - clusterGroup: samvera
+  - clusterSelector:
+      matchLabels:
+        env: dev
