@@ -13,5 +13,5 @@ helm:
       key: values.yaml
 # overrideTargets:
 #  - clusterGroup: samvera
-dependsOn:
-  - name: main-fleet-default-postgres-cluster-alpha
+# dependsOn:
+#  - name: main-fleet-default-postgres-cluster-alpha
