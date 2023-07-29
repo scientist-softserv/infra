@@ -6,7 +6,7 @@ collectionReplicas: 1
 authentication:
   enabled: true
   adminUsername: admin
-  existingSecret: solr-password
+  adminPassword: CHANGEME
 javaMem: "-Xms4g -Xmx6g"
 resources:
   limits:
