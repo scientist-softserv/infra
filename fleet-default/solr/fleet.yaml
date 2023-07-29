@@ -10,7 +10,7 @@ helm:
 # overrideTargets:
 #  - clusterGroup: samvera
 dependsOn:
-  - solr-pre
+  - name: solr-pre
 overrideTargets:
   - clusterSelector:
       matchLabels:
