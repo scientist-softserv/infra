@@ -1,8 +1,8 @@
 # values.yaml
 replicaCount: 2
 collectionReplicas: 1
-image:
-  tag: 8.11.2-debian-11-r50
+# image:
+#   tag: 8.11.2-debian-11-r50
 authentication:
   enabled: true
   adminUsername: admin
