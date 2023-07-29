@@ -7,7 +7,7 @@ helm:
   valuesFrom:
     - secretKeyRef:
       name: fcrepo-values
-      namespace: fcrepo
+      namespace: default
       key: values.yaml
 # overrideTargets:
 #  - clusterGroup: samvera
