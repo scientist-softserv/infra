@@ -1,0 +1,16 @@
+defaultNamespace: fcrepo
+helm:
+  repo: https://samvera-labs.github.io/fcrepo-charts
+  chart: fcrepo
+  takeOwnership: true
+  releaseName: fcrepo
+  valuesFrom:
+    - secretKeyRef:
+        name: fcrepo-values
+        namespace: default
+        key: values.yaml
+# overrideTargets:
+#  - clusterGroup: samvera
+# dependsOn:
+#  - name: main-fleet-default-postgres-cluster-alpha
+# test
