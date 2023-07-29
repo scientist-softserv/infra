@@ -8,7 +8,7 @@ helm:
     - fcrepo-values.yaml
   valuesFrom:
     - secretKeyRef:
-      name: fcrepo-config
+      name: fcrepo-values
       namespace: fcrepo
       key: values.yaml
 # overrideTargets:
