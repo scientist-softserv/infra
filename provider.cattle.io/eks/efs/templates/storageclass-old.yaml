@@ -1,0 +1,12 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: aws-efs
+parameters:
+  directoryPerms: "700"
+  fileSystemId: {{ .Values.fsid }}
+  provisioningMode: efs-ap
+provisioner: efs.csi.aws.com
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
