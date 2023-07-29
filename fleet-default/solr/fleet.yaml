@@ -10,8 +10,4 @@ helm:
 # overrideTargets:
 #  - clusterGroup: samvera
 dependsOn:
-  - name: solr-pre
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        env: dev
+  - name: main-fleet-default-solr-pre
