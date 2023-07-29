@@ -19,13 +19,6 @@ image:
 
 postgresql:
   enabled: false
-externalPostgresql:
-  host: CHANGEME
-  username: CHANGEME
-  password: CHANGEME
 
 s3:
   enabled: true
-  bucket: CHANGEME
-  access_key: CHANGEME
-  secret_key: CHANGEME
