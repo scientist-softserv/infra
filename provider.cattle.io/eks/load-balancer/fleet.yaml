@@ -9,6 +9,6 @@ helm:
   chart: aws-load-balancer-controller
   takeOwnership: true
   releaseName: aws-load-balancer-controller
-  version: 1.4.8
+  version: 2.5.4
   values:
     clusterName: global.fleet.clusterLabels.name
