@@ -26,10 +26,10 @@ persistence:
   enabled: true
   storageClass: gp2
   size: 500Gi
-# extraVolumeMounts:
-#   - name: backup
-#     mountPath: /bitnami/solr/server/solr/backup
-#     readOnly: false
+extraVolumeMounts:
+  - name: backup
+    mountPath: /backup
+    readOnly: false
 extraVolumes:
   - name: backup
     persistentVolumeClaim:
