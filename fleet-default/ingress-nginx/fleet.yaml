@@ -9,8 +9,8 @@ helm:
   - name: main-fleet-default-ingress-nginx-config
   valuesFiles:
     - ingress-nginx-values.yaml
-  # valuesFrom:
-  #   - secretKeyRef:
-  #       name: ingress-values
-  #       key: values.yaml
-  #       namespace: ingress-nginx
+  valuesFrom:
+    - secretKeyRef:
+        name: ingress-values
+        key: values.yaml
+        namespace: ingress-nginx
