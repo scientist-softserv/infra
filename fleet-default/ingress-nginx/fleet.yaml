@@ -5,5 +5,12 @@ helm:
   takeOwnership: true
   releaseName: ingress-nginx
   version: 4.5.2
+  dependsOn:
+  - name: main-fleet-default-ingress-nginx-config
   valuesFiles:
     - ingress-nginx-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: ingress-values
+        namespace: ingress
+        key: values.yaml
