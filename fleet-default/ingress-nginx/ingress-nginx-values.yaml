@@ -12,8 +12,8 @@ controller:
       service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
       service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /healthz
       service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: 10254
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
-      namespace: cattle-monitoring-system
+  # metrics:
+  #   enabled: true
+  #   serviceMonitor:
+  #     enabled: true
+  #     namespace: cattle-monitoring-system
