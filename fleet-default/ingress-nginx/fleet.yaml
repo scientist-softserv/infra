@@ -13,4 +13,4 @@ helm:
     - secretKeyRef:
         name: ingress-values
         key: values.yaml
-        namespace: ingress
+        namespace: ingress-nginx
