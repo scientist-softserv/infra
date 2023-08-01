@@ -10,8 +10,8 @@ helm:
   valuesFrom:
     - secretKeyRef:
         name: solr-values
-        namespace: solr
         key: values.yaml
+        namespace: solr
 # overrideTargets:
 #  - clusterGroup: samvera
 dependsOn:

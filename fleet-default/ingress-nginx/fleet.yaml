@@ -12,5 +12,5 @@ helm:
   valuesFrom:
     - secretKeyRef:
         name: ingress-values
-        namespace: ingress
         key: values.yaml
+        namespace: ingress
