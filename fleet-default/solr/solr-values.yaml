@@ -2,7 +2,7 @@
 replicaCount: 2
 collectionReplicas: 1
 image:
-  tag: 8.10.1-debian-10-r0
+  tag: 8.11.1-debian-10-r31
 authentication:
   enabled: true
   adminUsername: admin

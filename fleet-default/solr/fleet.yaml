@@ -1,10 +1,10 @@
 defaultNamespace: solr
 helm:
-  repo: https://charts.bitnami.com/bitnami
+  repo: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
   chart: solr
   takeOwnership: true
   releaseName: solr
-  version: v6.2.3
+  version: 4.1.2
   valuesFiles:
     - solr-values.yaml
   valuesFrom:
