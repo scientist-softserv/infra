@@ -14,10 +14,3 @@ helm:
         name: ingress-values
         key: values.yaml
         namespace: ingress-nginx
-diff:
-  comparePatches:
-  - apiVersion: v1
-    kind: ConfigMap
-    name: ingress-nginx-controller
-    operations:
-      - {"op":"remove", "path":"/spec"}
