@@ -1,0 +1,9 @@
+loki:
+  auth_enabled: false
+nameOverride: loki
+serviceMonitor:
+  enabled: true
+monitoring:
+  dashboards:
+    enabled: true
+    namespace: cattle-monitoring-system

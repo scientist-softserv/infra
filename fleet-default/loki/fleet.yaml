@@ -1,0 +1,12 @@
+defaultNamespace: cattle-monitoring-system
+helm:
+  releaseName: loki
+  repo: https://grafana.github.io/helm-charts
+  chart: loki
+  valuesFiles:
+    - loki-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: loki-values
+        namespace: loki
+        key: values.yaml

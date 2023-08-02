@@ -1,0 +1,5 @@
+defaultNamespace: kubernetes-replicator
+helm:
+  repo: https://helm.mittwald.de
+  chart: kubernetes-replicator
+  releaseName: kubernetes-replicator

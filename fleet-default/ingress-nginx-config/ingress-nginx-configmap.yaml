@@ -1,5 +1,6 @@
 apiVersion: v1
 data:
+  allow-snippet-annotations: 'true'
   client-body-buffer-size: 32k
   client-body-timeout: 500s
   client-header-buffer-size: 8k
@@ -16,5 +17,5 @@ metadata:
   annotations:
   labels:
     app: ingress-nginx
-  name: nginx-configuration
+  name: ingress-nginx-controller
   namespace: ingress-nginx

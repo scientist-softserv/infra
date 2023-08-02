@@ -1,0 +1,9 @@
+defaultNamespace: cattle-logging-system
+helm:
+  repo: https://grafana.github.io/helm-charts
+  chart: promtail
+  takeOwnership: true
+  releaseName: promtail
+  values:
+    config:
+      lokiAddress: http://loki-write.cattle-logging-system.svc.cluster.local:3100/loki/api/v1/push
