@@ -11,10 +11,11 @@ helm:
         namespace: cattle-logging-system
         key: values.yaml
 diff:
-  apiVersion: apps/v1
-    kind: StatefulSet
-    name: loki-backend
-    namespace: cattle-logging-system
-    operations:
-      - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenDeleted"}
-      - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenScaled"}
+  comparePatches:
+  - apiVersion: apps/v1
+      kind: StatefulSet
+      name: loki-backend
+      namespace: cattle-logging-system
+      operations:
+        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenDeleted"}
+        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenScaled"}
