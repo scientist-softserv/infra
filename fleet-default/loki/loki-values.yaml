@@ -3,7 +3,7 @@ loki:
 nameOverride: loki
 serviceMonitor:
   enabled: true
-monitoring:
-  dashboards:
-    enabled: true
-    namespace: cattle-monitoring-system
+# monitoring:
+#   dashboards:
+#     enabled: true
+#     namespace: cattle-monitoring-system

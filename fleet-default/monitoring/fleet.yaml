@@ -4,43 +4,5 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring
   version: 102.0.2+up40.1.2
-  values:
-    grafana:
-      additionalDataSources:
-        - name: "loki"
-          type: "loki"
-          url: "http://loki-read.cattle-logging-system.svc.cluster.local:3100"
-      persistence:
-        accessModes:
-        - ReadWriteOnce
-        annotations: null
-        enabled: true
-        finalizers: null
-        size: 10Gi
-        storageClassName: gp2
-        subPath: null
-        type: pvc
-    prometheus:
-      prometheusSpec:
-        evaluationInterval: 1m
-        resources:
-          limits:
-            cpu: 2000m
-            memory: 3000Mi
-          requests:
-            cpu: 1500m
-            memory: 1500Mi
-        retentionSize: 500GiB
-        scrapeInterval: 1m
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              accessModes:
-              - ReadWriteOnce
-              resources:
-                requests:
-                  storage: 510Gi
-              storageClassName: gp2
-              volumeMode: Filesystem
-    prometheusOperator:
-      hostNetwork: true
+  valuesFiles:
+    - rancher-monitoring-values.yaml
