@@ -20,4 +20,4 @@ diff:
     kind: ConfigMap
     name: ingress-nginx-controller
     operations:
-    - {"op":"remove", "path":"/"}
+      - {"op":"remove", "path":"/"}
