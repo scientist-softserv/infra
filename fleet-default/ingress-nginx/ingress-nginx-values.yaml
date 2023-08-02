@@ -1,7 +1,7 @@
 controller:
   replicaCount: 4
   config:
-    allow-snippet-annotations: 'true'
+    allow-snippet-annotations: wtrue"
     client-body-buffer-size: 32k
     client-body-timeout: 500s
     client-header-buffer-size: 8k
