@@ -12,7 +12,7 @@ helm:
         key: values.yaml
 diff:
   comparePatches:
-  - apiVersion: apps/v1
+    - apiVersion: apps/v1
       kind: StatefulSet
       name: loki-backend
       namespace: cattle-logging-system
