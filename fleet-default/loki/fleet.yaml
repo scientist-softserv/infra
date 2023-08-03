@@ -17,5 +17,5 @@ diff:
       name: loki-backend
       namespace: cattle-logging-system
       operations:
-        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenDeleted"}
-        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolic/whenScaled"}
+        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenDeleted"}
+        - {"op": "remove", "path": "/spec/persistentVolumeClaimRetentionPolicy/whenScaled"}
