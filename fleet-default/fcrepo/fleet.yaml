@@ -11,7 +11,7 @@ helm:
         name: fcrepo-values
         namespace: fcrepo
         key: values.yaml
-# overrideTargets:
-#  - clusterGroup: samvera
+overrideTargets:
+  - clusterGroup: samvera
 # dependsOn:
 #  - name: main-fleet-default-postgres-cluster-alpha
