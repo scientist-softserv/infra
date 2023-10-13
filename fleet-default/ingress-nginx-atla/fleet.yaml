@@ -1,0 +1,5 @@
+defaultNamespace: ingress-nginx
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        env: atla
