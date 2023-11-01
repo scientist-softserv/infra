@@ -12,7 +12,7 @@ helm:
         name: solr-values
         key: values.yaml
         namespace: solr
-# overrideTargets:
-#  - clusterGroup: samvera
+overrideTargets:
+ - clusterGroup: samvera
 dependsOn:
   - name: main-fleet-default-solr-pre
