@@ -1,0 +1,19 @@
+defaultNamespace: harbor
+helm:
+  repo: https://helm.goharbor.io
+  chart: harbor
+  takeOwnership: true
+  releaseName: harbor
+  valuesFiles:
+    - harbor-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: harbor-values
+        namespace: harbor
+        key: values.yaml
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
+dependsOn:
+ - name: main-fleet-default-harbor-pre
