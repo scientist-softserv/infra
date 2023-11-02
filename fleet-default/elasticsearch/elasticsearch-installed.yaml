@@ -56,8 +56,9 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: tilma-es-http
-          servicePort: https
+          service:
+            name: tilma-es-http
+            port: https
         path: /
         pathType: ImplementationSpecific
   tls:
@@ -79,8 +80,9 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: tilma-kb-http
-          servicePort: 5601
+          service:
+            name: tilma-kb-http
+            port: 5601
         path: /
         pathType: ImplementationSpecific
   tls:
