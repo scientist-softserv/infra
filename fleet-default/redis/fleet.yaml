@@ -1,6 +1,6 @@
 defaultNamespace: storage
 helm:
-  repo: "oci://registry-1.docker.io/bitnamicharts/redis"
+  repo: https://charts.bitnami.com/bitnami
   chart: redis
   takeOwnership: true
   releaseName: redis
