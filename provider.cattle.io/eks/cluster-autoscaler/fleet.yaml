@@ -13,3 +13,5 @@ helm:
         key: values.yaml
 overrideTargets:
  - clusterGroup: loadbalancer
+dependsOn:
+ - name: eks-provider.cattle.io-eks-cluster-autoscaler-pre
