@@ -3,9 +3,9 @@ controller:
   config:
     allow-snippet-annotations: "true"
     client-body-buffer-size: 32k
-    client-body-timeout: 500s
+    client-body-timeout: 600s
     client-header-buffer-size: 8k
-    client-header-timeout: 500s
+    client-header-timeout: 600s
     forwarded-for-header: X-Forwarded-For
     proxy-body-size: "0"
     proxy-read-timeout: "3600"
