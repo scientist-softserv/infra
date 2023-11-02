@@ -1,0 +1,10 @@
+defaultNamespace: cluster-autoscaler
+helm:
+  repo: https://kubernetes.github.io/autoscaler
+  chart: autoscaler
+  takeOwnership: true
+  releaseName: cluster-autoscaler
+  valuesFiles:
+    - autoscaler-values.yaml
+overrideTargets:
+ - clusterGroup: loadbalancer
