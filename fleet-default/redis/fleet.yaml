@@ -6,7 +6,3 @@ helm:
   releaseName: redis
   valuesFiles:
     - redis-values.yaml
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        name: r2-gc
