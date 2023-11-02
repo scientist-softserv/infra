@@ -14,4 +14,4 @@ helm:
 overrideTargets:
  - clusterGroup: loadbalancer
 dependsOn:
- - name: eks-provider-cattle-io-eks-cluster-autoscaler-p
+ - name: eks-eks-cluster-autoscaler-pre
