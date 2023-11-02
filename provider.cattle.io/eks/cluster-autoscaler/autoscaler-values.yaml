@@ -1,6 +1,3 @@
-autoDiscovery:
-  clusterName: cluster.local
-
 serviceMonitor:
   enabled: true
   namespace: cattle-monitoring-system

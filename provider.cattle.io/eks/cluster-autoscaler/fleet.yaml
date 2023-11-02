@@ -6,5 +6,10 @@ helm:
   releaseName: cluster-autoscaler
   valuesFiles:
     - autoscaler-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: autoscaler-values
+        namespace: cluster-autoscaler
+        key: values.yaml
 overrideTargets:
  - clusterGroup: loadbalancer
