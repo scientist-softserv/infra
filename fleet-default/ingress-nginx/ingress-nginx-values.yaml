@@ -1,0 +1,35 @@
+controller:
+  replicaCount: 4
+  config:
+    allow-snippet-annotations: "true"
+    client-body-buffer-size: 32k
+    client-body-timeout: 500s
+    client-header-buffer-size: 8k
+    client-header-timeout: 500s
+    forwarded-for-header: X-Forwarded-For
+    proxy-body-size: "0"
+    proxy-read-timeout: "3600"
+    proxy-real-ip-cidr: 103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,104.16.0.0/12,108.162.192.0/18,131.0.72.0/22,141.101.64.0/18,162.158.0.0/15,172.64.0.0/13,173.245.48.0/20,188.114.96.0/20,190.93.240.0/20,197.234.240.0/22,198.41.128.0/17,2400:cb00::/32,2606:4700::/32,2803:f800::/32,2405:b500::/32,2405:8100::/32,2c0f:f248::/32,2a06:98c0::/29
+    proxy-send-timeout: "3600"
+    ssl-redirect: "false"
+    use-forwarded-headers: "true"
+  service:
+    type: LoadBalancer
+    annotations:
+      ingressclass.kubernetes.io/is-default-class: "true"
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+      service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+      service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: /healthz
+      service.beta.kubernetes.io/aws-load-balancer-healthcheck-port: 10254
+      service.beta.kubernetes.io/aws-load-balancer-healthcheck-protocol: http
+      service.beta.kubernetes.io/aws-load-balancer-ip-address-type: ipv4
+      service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: instance
+      service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+      service.beta.kubernetes.io/aws-load-balancer-type: external
+      service.beta.kubernetes.io/aws-load-balancer-type: nlb
+
+  # metrics:
+  #   enabled: true
+  #   serviceMonitor:
+  #     enabled: true
+  #     namespace: cattle-monitoring-system

@@ -1,0 +1,15 @@
+# TODO this needs IAM setup, here are some links to help you. more automation should happen in the future
+# https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/deploy/installation/#option-a-iam-roles-for-service-accounts-irsa
+# https://aws.amazon.com/blogs/containers/exposing-kubernetes-applications-part-3-nginx-ingress-controller/
+# https://aws.amazon.com/premiumsupport/knowledge-center/eks-load-balancer-webidentityerr/
+
+defaultNamespace: kube-system
+helm:
+  repo: https://aws.github.io/eks-charts
+  chart: aws-load-balancer-controller
+  takeOwnership: true
+  releaseName: aws-load-balancer-controller
+  values:
+    clusterName: global.fleet.clusterLabels.name
+overrideTargets:
+  - clusterGroup: loadbalancer
