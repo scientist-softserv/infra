@@ -1,0 +1,7 @@
+defaultNamespace: elasticsearch
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
+dependsOn:
+  - name: main-fleet-default-elasticsearch-operator

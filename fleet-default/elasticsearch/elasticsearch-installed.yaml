@@ -1,0 +1,91 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: tilma
+spec:
+  version: 8.9.0
+  http:
+    service:
+      spec:
+        type: LoadBalancer
+  nodeSets:
+  - name: default
+    count: 3
+    config:
+      node.store.allow_mmap: false
+---
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: tilma
+spec:
+  version: 8.9.0
+  count: 1
+  elasticsearchRef:
+    name: tilma
+  config:
+    server.rewriteBasePath: true
+    server.basePath: /k
+    server.publicBaseUrl: https://kibana.buildoncanvas.com/k
+    server.host: "0.0.0.0"
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  podTemplate:
+      spec:
+        containers:
+        - name: kibana
+          readinessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /k
+              port: 5601
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production-dns
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  name: elatic-ing
+  namespace: elasticsearch
+spec:
+  rules:
+  - host: elastic.builtoncanvas.com
+    http:
+      paths:
+      - backend:
+          serviceName: tilma-es-http
+          servicePort: https
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - elastic.builtoncanvas.com
+    secretName: elastic-tls-1
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production-dns
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/app-root: /k
+  name: kibana-ing
+  namespace: elasticsearch
+spec:
+  rules:
+  - host: kibana.builtoncanvas.com
+    http:
+      paths:
+      - backend:
+          serviceName: tilma-kb-http
+          servicePort: 5601
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - kibana.builtoncanvas.com
+    secretName: kibana-tls-1
