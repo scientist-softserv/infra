@@ -1,7 +1,7 @@
 defaultNamespace: cluster-autoscaler
 helm:
   repo: https://kubernetes.github.io/autoscaler
-  chart: autoscaler
+  chart: cluster-autoscaler
   takeOwnership: true
   releaseName: cluster-autoscaler
   valuesFiles:
