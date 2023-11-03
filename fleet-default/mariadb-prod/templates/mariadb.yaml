@@ -55,10 +55,10 @@ spec:
 
   resources:
     requests:
-      cpu: 2
+      cpu: '2'
       memory: 16Gi
     limits:
-      cpu: 4
+      cpu: '4'
       memory: 24Gi
   metrics:
     exporter:
