@@ -1,0 +1,11 @@
+crowdsec
+defaultNamespace: crowdsec
+helm:
+  repo: https://crowdsecurity.github.io/helm-charts
+  chart: crowdsec
+  takeOwnership: true
+  releaseName: crowdsec
+  valuesFiles:
+    - crowdsec-values.yaml
+overrideTargets:
+  - clusterGroup: loadbalancer
