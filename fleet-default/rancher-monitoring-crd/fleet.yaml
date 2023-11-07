@@ -7,7 +7,7 @@ helm:
   values:
     global:
       cattle:
-        clusterId: globa.fleet.clusterLabels.management.cattle.io/cluster-name
+        clusterId: global.fleet.clusterLabels.management.cattle.io/cluster-name
 # diff:
 #   comparePatches:
 #   - apiVersion: policy/v1beta1
