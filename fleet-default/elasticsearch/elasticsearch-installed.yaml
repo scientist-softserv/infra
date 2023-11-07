@@ -55,7 +55,7 @@ spec:
           service:
             name: tilma-es-http
             port:
-              number: "9200"
+              number: 9200
         path: /
         pathType: ImplementationSpecific
   tls:
