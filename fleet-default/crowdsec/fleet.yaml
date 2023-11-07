@@ -1,4 +1,3 @@
-crowdsec
 defaultNamespace: crowdsec
 helm:
   repo: https://crowdsecurity.github.io/helm-charts
