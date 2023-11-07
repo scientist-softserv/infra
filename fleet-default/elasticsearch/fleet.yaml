@@ -1,3 +1,4 @@
+---
 defaultNamespace: elasticsearch
 overrideTargets:
   - clusterSelector:

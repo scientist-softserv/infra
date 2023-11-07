@@ -4,6 +4,11 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring
   version: 102.0.2+up40.1.2
+  values:
+    clusterName: global.fleet.clusterLabels.name
+    global:
+      cattle:
+        clusterId: globa.fleet.clusterLabels.management.cattle.io/cluster-name
   valuesFiles:
     - rancher-monitoring-values.yaml
 

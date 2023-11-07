@@ -4,6 +4,10 @@ helm:
   chart: rancher-monitoring-crd
   repo: https://charts.rancher.io
   version: 102.0.2+up40.1.2
+  values:
+    global:
+      cattle:
+        clusterId: globa.fleet.clusterLabels.management.cattle.io/cluster-name
 # diff:
 #   comparePatches:
 #   - apiVersion: policy/v1beta1
