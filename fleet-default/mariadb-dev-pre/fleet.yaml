@@ -1,4 +1,4 @@
-defaultNamespace: mariadb-prod
+defaultNamespace: mariadb-dev
 overrideTargets:
   - clusterSelector:
       matchLabels:
