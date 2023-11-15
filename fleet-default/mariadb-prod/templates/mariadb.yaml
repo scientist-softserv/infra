@@ -45,6 +45,14 @@ spec:
     binlog_format=row
     innodb_autoinc_lock_mode=2
     max_allowed_packet=512M
+    symbolic-links=0
+    # UTF8
+    character-set-client-handshake = FALSE
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_ci
+
+    [mysqldump]
+    max_allowed_packet=512M
 
   volumeClaimTemplate:
     resources:
