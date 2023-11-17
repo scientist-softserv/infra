@@ -1,5 +1,4 @@
-cluster:
-  enabled: false
-  slaveCount: 0
+replica:
+  replicaCount: 1
 metrics:
   enabled: true

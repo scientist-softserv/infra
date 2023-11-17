@@ -1,0 +1,24 @@
+persistence:
+  enabled: true
+  size: "50Gi"
+tempo:
+  retention: 336h
+  metricsGenerator:
+    # TODO
+    # -- If true, enables Tempo's metrics generator (https://grafana.com/docs/tempo/next/metrics-generator/)
+    enabled: false
+    remoteWriteUrl: "http://prometheus.monitoring:9090/api/v1/write"
+  storage:
+    trace:
+      # tempo storage backend
+      # refer https://grafana.com/docs/tempo/latest/configuration/
+      ## Use s3 for example
+      backend: s3
+      # store traces in s3
+      s3:
+        insecure: false
+      # backend: local
+      # local:
+      #   path: /var/tempo/traces
+      # wal:
+      #   path: /var/tempo/wal

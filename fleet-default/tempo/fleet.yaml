@@ -1,0 +1,20 @@
+defaultNamespace: cattle-monitoring-system
+helm:
+  repo: https://grafana.github.io/helm-charts
+  chart: tempo
+  takeOwnership: true
+  releaseName: tempo
+  valuesFiles:
+    - tempo-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: tempo-values
+        namespace: cattle-monitoring-system
+        key: values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
+dependsOn:
+ - name: main-fleet-default-tempo-pre
