@@ -1,0 +1,71 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mount-efs
+  labels:
+    app: efs
+    component: efs
+spec:
+  capacity:
+    storage: 101Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  volumeMode: Filesystem
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0d90713bb84754a4d:/tilma
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mount-pvcefs
+  namespace: default
+  labels:
+    app: efs
+    component: efs
+spec:
+  storageClassName: "efs-sc"
+  volumeName: mount-efs
+  accessModes:
+  - ReadWriteMany
+  resources:
+     requests:
+       storage: 101Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: efs
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  template:
+    spec:
+      containers:
+      - command:
+        - sleep
+        - infinity
+        image: ubuntu:latest
+        imagePullPolicy: Always
+        name: efs
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /efs
+          name: efsmount
+          subPath: ./
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: efsmount
+        persistentVolumeClaim:
+          claimName: mount-pvcefs
