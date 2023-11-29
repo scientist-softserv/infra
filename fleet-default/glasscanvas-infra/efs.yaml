@@ -42,6 +42,9 @@ kind: Deployment
 metadata:
   name: efs
   namespace: default
+  labels:
+    app: efs
+    component: efs
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
