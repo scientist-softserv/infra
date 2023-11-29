@@ -1,1 +1,5 @@
-defaultNamespace: cattle-logging-system
+defaultNamespace: cattle-monitoring-system
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
