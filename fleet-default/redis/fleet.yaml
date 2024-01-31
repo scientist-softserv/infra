@@ -2,6 +2,7 @@ defaultNamespace: storage
 helm:
   repo: https://charts.bitnami.com/bitnami
   chart: redis
+  version: 18.3.3
   takeOwnership: true
   releaseName: redis
   valuesFiles:
