@@ -1,0 +1,97 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: legacy
+spec:
+  version: 6.8.23
+  nodeSets:
+  - name: default
+    count: 3
+    config:
+      node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 200Gi
+---
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: legacy
+spec:
+  version: 6.8.23
+  count: 1
+  elasticsearchRef:
+    name: legacy
+  config:
+    server.rewriteBasePath: true
+    server.basePath: /k
+    server.host: "0.0.0.0"
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  podTemplate:
+      spec:
+        containers:
+        - name: kibana
+          readinessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /k
+              port: 5601
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production-dns
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+  name: elastic-legacy-ing
+spec:
+  rules:
+  - host: elastic-legacy.builtoncanvas.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: legacy-es-http
+            port:
+              number: 9200
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - elastic-legacy.builtoncanvas.com
+    secretName: elastic-legacy-tls-1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production-dns
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/app-root: /k
+  name: kibana-legacy-ing
+spec:
+  rules:
+  - host: kibana-legacy.builtoncanvas.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: legacy-kb-http
+            port:
+              number: 5601
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - kibana-legacy.builtoncanvas.com
+    secretName: kibana-legacy-tls-1
