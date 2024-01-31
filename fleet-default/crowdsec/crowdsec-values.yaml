@@ -1,4 +1,8 @@
 agent:
+  metrics:
+    enabled: true
+    # serviceMonitor:
+    #   enabled: true
   # To specify each pod you want to process it logs (pods present in the node)
   acquisition:
     # The namespace where the pod is located
@@ -9,14 +13,22 @@ agent:
       program: nginx
   # Those are ENV variables
   env:
-  # As it's a test, we don't want to share signals with CrowdSec so disable the Online API.
-  - name: DISABLE_ONLINE_API
-    value: "true"
+  # # As it's a test, we don't want to share signals with CrowdSec so disable the Online API.
+  # - name: DISABLE_ONLINE_API
+  #   value: "true"
   # As we are running Nginx, we want to install the Nginx collection
-  - name: COLLECTIONS
-    value: "crowdsecurity/nginx"
+    - name: COLLECTIONS
+      value: "crowdsecurity/nginx"
 lapi:
+  dashboard:
+    enabled: true
+  metrics:
+    enabled: true
+    # serviceMonitor:
+    #   enabled: true
   env:
-    # As it's a test, we don't want to share signals with CrowdSec, so disable the Online API.
-    - name: DISABLE_ONLINE_API
-      value: "true"
+    - name: ENROLL_KEY
+      value: cloyvy1e70000la08fvjjokp9
+  #   # As it's a test, we don't want to share signals with CrowdSec, so disable the Online API.
+  #   - name: DISABLE_ONLINE_API
+  #     value: "true"

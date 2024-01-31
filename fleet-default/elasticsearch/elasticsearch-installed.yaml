@@ -9,6 +9,15 @@ spec:
     count: 3
     config:
       node.store.allow_mmap: false
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 200Gi
 ---
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
