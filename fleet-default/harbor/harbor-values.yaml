@@ -94,7 +94,8 @@ database:
   type: internal
   internal:
     # The initial superuser password for internal database
-    # password: ""
+    # this is not externally connetable and therefor not really secret.
+    password: "e285c93011d1cf307"
     # The size limit for Shared memory, pgSQL use it for shared_buffer
     # More details see:
     # https://github.com/goharbor/harbor/issues/15034
