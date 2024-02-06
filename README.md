@@ -36,3 +36,7 @@ name - will match the specific name of a cluster
 
 provider.cattle.io
   - eks
+
+
+## TODO
+what happens if you start a new cluster w/ ingress-nginx and crowdsec. you cant know the api key yet, will ingress hang or will just the crowdsec part not work?

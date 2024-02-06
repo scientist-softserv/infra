@@ -26,9 +26,6 @@ lapi:
     enabled: true
     # serviceMonitor:
     #   enabled: true
-  env:
-    - name: ENROLL_KEY
-      value: cloyvy1e70000la08fvjjokp9
   #   # As it's a test, we don't want to share signals with CrowdSec, so disable the Online API.
   #   - name: DISABLE_ONLINE_API
   #     value: "true"

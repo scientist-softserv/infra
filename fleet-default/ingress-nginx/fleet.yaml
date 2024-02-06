@@ -9,6 +9,8 @@ helm:
   - name: main-fleet-default-ingress-nginx-config
   valuesFiles:
     - ingress-nginx-values.yaml
+  valuesFiles:
+    - crowdsec-ingress-bouncer-values.yaml
   valuesFrom:
     - secretKeyRef:
         name: ingress-values

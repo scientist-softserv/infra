@@ -6,5 +6,10 @@ helm:
   releaseName: crowdsec
   valuesFiles:
     - crowdsec-values.yaml
+  valuesFrom:
+    - secretKeyRef:
+        name: crowdsec-values
+        namespace: crowdsec
+        key: values.yaml
 overrideTargets:
   - clusterGroup: loadbalancer
