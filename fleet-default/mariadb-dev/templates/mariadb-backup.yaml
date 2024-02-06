@@ -6,8 +6,8 @@ spec:
   mariaDbRef:
     name: mariadb-dev
   schedule:
-    cron: "5 * * * *"
-  maxRetentionDays: 30
+    cron: "5 12 * * *"
+  maxRetentionDays: 5
   storage:
     persistentVolumeClaim:
       resources:
