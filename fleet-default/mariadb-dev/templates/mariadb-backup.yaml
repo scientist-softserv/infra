@@ -4,9 +4,9 @@ metadata:
   name: mariadb-dev
 spec:
   mariaDbRef:
-    name: mariadb
+    name: mariadb-dev
   schedule:
-    cron: "*/1 * * * *"
+    cron: "5 * * * *"
   maxRetentionDays: 30
   storage:
     persistentVolumeClaim:
