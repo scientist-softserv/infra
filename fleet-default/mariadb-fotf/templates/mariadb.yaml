@@ -1,16 +1,16 @@
 apiVersion: mariadb.mmontes.io/v1alpha1
 kind: MariaDB
 metadata:
-  name: mariadb-dev
+  name: mariadb-fotf
 spec:
   rootPasswordSecretKeyRef:
-    name: mariadb-dev
+    name: mariadb-fotf
     key: password
 
   database: mariadb
   username: mariadb
   passwordSecretKeyRef:
-    name: mariadb-dev
+    name: mariadb-fotf
     key: password
 
   image: mariadb:11.0.3
