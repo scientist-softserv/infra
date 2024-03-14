@@ -97,8 +97,7 @@ serverConfig:
     max_allowed_packet=512M
 
 datadirVolumeClaimTemplate:
-  accessModes:
-    - ReadWriteOnce
+  accessModes: ReadWriteOnce
   resources:
     requests:
       storage: 1Ti
