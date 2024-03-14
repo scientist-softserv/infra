@@ -16,4 +16,4 @@ overrideTargets:
       matchLabels:
         name: r2-gc
 dependsOn:
-  - name: main-fleet-default-mysql-operator
+  - name: main-fleet-default-mysql-tilma-dev-pre
