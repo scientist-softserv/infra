@@ -137,7 +137,7 @@ backupProfiles:
 
 backupSchedules:
 - name: schedule-ref
-  schedule: "*/1 * * * *"
+  schedule: "5 1 * * *"
   timeZone: "Europe/Amsterdam"
   deleteBackupData: false
   backupProfileName: dump-instance-profile-pvc
