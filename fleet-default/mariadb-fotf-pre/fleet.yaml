@@ -1,5 +1,0 @@
-defaultNamespace: mariadb-fotf
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        name: r2-gc

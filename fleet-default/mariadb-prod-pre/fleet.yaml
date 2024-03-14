@@ -1,5 +1,0 @@
-defaultNamespace: mariadb-prod
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        name: r2-gc
