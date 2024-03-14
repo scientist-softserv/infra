@@ -1,0 +1,12 @@
+defaultNamespace: mysql-operator
+helm:
+  repo: https://mysql.github.io/mysql-operator/
+  chart: mysql-operator
+  takeOwnership: true
+  releaseName: mysql-operator
+  valuesFiles:
+    - mysql-operator-values.yaml
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        name: r2-gc
