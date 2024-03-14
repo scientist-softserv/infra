@@ -3,9 +3,11 @@ credentials:
     user: root
 #    password: sakila
     host: "%"
+tls:
+  useSelfSigned: true
 
 #serverVersion: 8.0.31
-serverInstances: 3
+serverInstances: 2
 routerInstances: 1 # or use router.instances
 baseServerId: 1000
 
