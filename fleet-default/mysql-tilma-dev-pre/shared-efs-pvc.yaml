@@ -6,7 +6,7 @@ metadata:
   name: mysql-tilma-dev-shared-efs
 spec:
   accessModes:
-  - ReadWriteMany
+    - ReadWriteMany
   resources:
     requests:
       storage: 101Gi

@@ -10,15 +10,15 @@ routerInstances: 1 # or use router.instances
 baseServerId: 1000
 
 logs:
- error:
-   enabled: true
-   collect: false
- general:
-   enabled: true
-   collect: false
- slowQuery:
-   enabled: true
-   longQueryTime: 2.5
+  error:
+    enabled: true
+    collect: false
+  general:
+    enabled: true
+    collect: false
+  slowQuery:
+    enabled: true
+    longQueryTime: 2.5
 #  collector:
 #    image: "192.168.20.198:5000/fluentd-es:v1.16"
 #    fluentd:
@@ -130,10 +130,10 @@ datadirVolumeClaimTemplate:
 
 backupProfiles:
 - name: dump-instance-profile-pvc
- dumpInstance:
-   storage:
-     persistentVolumeClaim:
-       claimName: mysql-tilma-dev-backup-volume
+  dumpInstance:
+    storage:
+      persistentVolumeClaim:
+        claimName: mysql-tilma-dev-backup-volume
 
 backupSchedules:
 - name: schedule-ref
