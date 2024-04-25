@@ -39,4 +39,4 @@ provider.cattle.io
 
 
 ## TODO
-what happens if you start a new cluster w/ ingress-nginx and crowdsec. you cant know the api key yet, will ingress hang or will just the crowdsec part not work?
+Cluster will not start ingress-nginx until external secret request for crowdsec key can be fullfilled. Need to figure out a way to get around this since getting the api key is a manual process post crowdsec starting up.
