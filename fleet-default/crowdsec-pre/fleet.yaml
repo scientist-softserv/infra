@@ -1,3 +1,0 @@
-defaultNamespace: crowdsec
-overrideTargets:
-  - clusterGroup: loadbalancer

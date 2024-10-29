@@ -36,7 +36,3 @@ name - will match the specific name of a cluster
 
 provider.cattle.io
   - eks
-
-
-## TODO
-Cluster will not start ingress-nginx until external secret request for crowdsec key can be fullfilled. Need to figure out a way to get around this since getting the api key is a manual process post crowdsec starting up.
